@@ -1,0 +1,147 @@
+<html>
+    <head>
+		<title>Colloquium - Sign Up</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="shortcut icon" href="images/favicon.png" type="image/png">
+		<link rel="stylesheet" href="assets/css/main.css">
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script src="assets/js/calendar.js"></script>
+        <script src="assets/js/users.js"></script>
+        <script src="assets/js/posts.js"></script>
+
+	</head>
+	<body class="" onload="">
+
+		<!-- Content -->
+			<div style="min-height: 2241px;" id="content">
+			   <div id="dialogoverlay"></div>
+				<div id="dialogbox">
+  				  <div>
+    				<div id="dialogboxhead"></div>
+    				<div id="dialogboxbody"></div>
+    				<div id="dialogboxfoot"></div>
+  				  </div>
+				</div>
+				
+				<div class="inner">
+                    <nav id="nav1">
+					   <ul>
+						 <li id="greetuser"> Welcome,Guest</li>
+						 <li></li>
+						 <li></li>
+					   </ul>
+
+					    
+                     </nav>
+                     <div id="signup" class="current" id="signup">
+                     <form id="signUpForm" action="" onSubmit="return validateSignUp()" method='post'>
+
+                      <label for="fullname" >Full Name: <input type="text" class="text" name="fullname" placeholder="Please provide your Full Name" required></label>
+
+					   <label for="username" >User Name: <input type="text" class="text" name="username" placeholder="Provide your desired User Name (Avoid Special Characters)" required></label>
+
+					   <label for="password">Password: <input type="password" class="text" name="password" placeholder="Use a strong Password (min. 6 characters)" required></label>
+
+					   <label for="repassword">Repeat Password: <input type="password" class="text" name="repassword" placeholder="Repeat Password " required></label>
+
+					   <label for="email">Email ID: <input type="email" name="email"  class="text" placeholder="Email ID "></label>
+                       
+                        <label for="secq">Security Question: <input type="text" name="secq"  class="text" placeholder="Security Question to Recover your account in case you loose your password " required></label>
+                      
+                       <label for="seca">Answer for the Security Question: <input type="text" name="seca"  class="text" placeholder="Answer for Security Q " required></label>
+                      
+
+                       <input type="submit" style="margin-left:75%; margin-top:3%" value="Sign Up" name="Sign Up" >
+
+                      
+					 </form>
+					 
+					 </div>
+					 <div id="documentWriter"></div>
+				</div>
+			</div>
+
+		<!-- Sidebar -->
+			<div style="min-height: 2241px;" id="sidebar">
+
+				<!-- Logo -->
+					<h1 id="logo"><a href="index.html">Colloquium</a></h1>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li class="current" onclick="recentPosts()"><a href="#">Latest Posts</a></li>
+							<li><a href="#" onclick="viewSinglePost(forumPosts,0)">About Colloquium</a></li>
+							<li><a href="http://www.qburst.com/company/contact">Contact Us</a></li>
+						</ul>
+					</nav>
+
+				<!-- Search -->
+					<section class="box search">
+						<form method="post" action="#">
+							<input class="text" name="search" placeholder="Search" type="text">
+						</form>
+					</section>
+
+				<!-- Text -->
+					<section class="box text-style1">
+						<div class="inner">
+							<p>
+								<strong>Colloquium:</strong> An Open forum to discuss on anything under the Universe!
+								Task done by <a href="http://space.qburst.com/viewEmployee.html/ag5zfnFidXJzdC1zcGFjZXIVCxIIRW1wbG95ZWUYgICAoc2wzAsM/">Sherwin
+							</p>
+						</div>
+					</section>
+
+				<!-- Recent Posts -->
+					<section class="box recent-posts">
+						<header>
+							<h2>Recent Posts</h2>
+						</header>
+						<ul id="recentPosts">
+							<li><a href="#">Windows 10 Updates</a></li>
+							<li><a href="#">Get the most of your LINUX</a></li>
+							<li><a href="#">Pluto Exploration</a></li>
+							<li><a href="#">Intel Compute Stick VS Raspberry Pi 2.0</a></li>
+							<li><a href="#">Open Source Developments</a></li>
+						</ul>
+					</section>
+
+				<!-- Recent Comments -->
+					<!--<section class="box recent-comments">
+						<header>
+							<h2>Recent Comments</h2>
+						</header>
+						<ul>
+							<li>George : <a href="#">This is ridiculous</a></li>
+							<li>Mary :<a href="#">Dont try this !</a></li>
+							<li>Robert : <a href="#">Great work dude...</a></li>
+						</ul>
+					</section>-->
+                
+				<section class="box calendar">
+						<div class="inner" onclick="setCal()">
+						<script>setCal()</script>
+						</div>
+					</section>	
+
+				<!-- Copyright -->
+					<ul id="copyright">
+						<li>© QBurst Technologies.</li><li>Design: <a href="http://www.qburst.com">Front End Team.</a></li>
+					</ul>
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+            <script src="assets/js/access-controller.js"></script>
+            <script src="assets/js/data-controller.js"></script>
+
+	</body>

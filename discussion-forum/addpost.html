@@ -1,0 +1,158 @@
+<html>
+    <head>
+		<title>Colloquium - Add a new Post </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="shortcut icon" href="images/favicon.png" type="image/png">
+		<link rel="stylesheet" href="assets/css/main.css">
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script src="assets/js/calendar.js"></script>
+        <script src="assets/js/users.js"></script>
+        <script src="assets/js/posts.js"></script>
+
+	</head>
+	<body class="" onload="loadData()">
+
+		<!-- Content -->
+			<div style="min-height: 2241px;" id="content">
+			 <div id="dialogoverlay"></div>
+				<div id="dialogbox">
+  				  <div>
+    				<div id="dialogboxhead"></div>
+    				<div id="dialogboxbody"></div>
+    				<div id="dialogboxfoot"></div>
+  				  </div>
+				</div>
+				
+				<div class="inner">
+                    <nav id="nav1">
+					   <form id="loginForm" action="" onSubmit="validateLogin()" method='post'>
+					   <ul>
+						 <li id="greetuser">Welcome,Guest </li>
+						 <li></li>
+						 <li></li>
+					    <li><input name="email" id="email" placeholder="Username or Email" type="text"></li>
+					     <li><input name="pass" id="pass"  placeholder="Password" type="password">
+					     </li>
+					     
+
+					     <a href="#" style="font-size:75%">Forgot password</a>
+					           
+					     <li><a href="#" class="button" onclick="validateLogin()">  Log In</a></li>
+					     <li><a href="signup.html" class="button">Sign Up</a></button></li>  
+					     </ul>    
+					 </form>
+					 <ul id="bottom-bar"></ul>
+                     </nav>
+
+             
+                     <div id="addpost">
+                     <form id="newPostForm" action="" onSubmit="return addPosts()" method='post'>
+
+                      <label for="title" >Post Title: <input type="text" class="text" name="title" placeholder="Please provide the Title of your Post (Avoid Special Characters)" required></label>
+
+					   <label for="topic">Post Topic <input type="text" class="text" name="topic" placeholder="Provide the topics that your post is related to" required></label>
+
+					   <label for="summary">Brief Description: <textarea class="text" name="summary" placeholder="Brief insight into your Post"  required></textarea></label>
+
+					   <label for="imgurl">Http Url of an image related to your Post: <input type="text" class="text" name="imgurl" placeholder="only Urls are allowed " required></label>
+
+					   <label for="description">Detailed Description of your Post: <textarea  name="description"  class="text"  style="height: 700px;" placeholder="Add your Post Content here.... "></textarea></label>
+                       
+                        
+                       <input type="submit" style="margin-left:75%; margin-top:3%" value="Submit Post">
+
+                      
+					 </form>
+					 </div>
+				<div id="documentWriter"></div>
+				</div>
+			</div>
+
+		<!-- Sidebar -->
+			<div style="min-height: 2241px;" id="sidebar">
+
+				<!-- Logo -->
+					<h1 id="logo"><a href="index.html">Colloquium</a></h1>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li class="current" onclick="recentPosts()"><a href="#">Latest Posts</a></li>
+							<li><a href="#" onclick="viewSinglePost(forumPosts,0)">About Colloquium</a></li>
+							<li><a href="http://www.qburst.com/company/contact">Contact Us</a></li>
+						</ul>
+					</nav>
+
+				<!-- Search -->
+					<section class="box search">
+						<form method="post" action="#">
+							<input class="text" name="search" placeholder="Search" type="text">
+						</form>
+					</section>
+
+				<!-- Text -->
+					<section class="box text-style1">
+						<div class="inner">
+							<p>
+								<strong>Colloquium:</strong> An Open forum to discuss on anything under the Universe!
+								Task done by <a href="http://space.qburst.com/viewEmployee.html/ag5zfnFidXJzdC1zcGFjZXIVCxIIRW1wbG95ZWUYgICAoc2wzAsM/">Sherwin
+							</p>
+						</div>
+					</section>
+
+				<!-- Recent Posts -->
+					<section class="box recent-posts">
+						<header>
+							<h2>Recent Posts</h2>
+						</header>
+						<ul id="recentPosts">
+							<li><a href="#">Windows 10 Updates</a></li>
+							<li><a href="#">Get the most of your LINUX</a></li>
+							<li><a href="#">Pluto Exploration</a></li>
+							<li><a href="#">Intel Compute Stick VS Raspberry Pi 2.0</a></li>
+							<li><a href="#">Open Source Developments</a></li>
+						</ul>
+					</section>
+
+				<!-- Recent Comments -->
+					<!--<section class="box recent-comments">
+						<header>
+							<h2>Recent Comments</h2>
+						</header>
+						<ul>
+							<li>George : <a href="#">This is ridiculous</a></li>
+							<li>Mary :<a href="#">Dont try this !</a></li>
+							<li>Robert : <a href="#">Great work dude...</a></li>
+						</ul>
+					</section>-->
+                
+				<section class="box calendar">
+						<div class="inner" onclick="setCal()">
+						<script>setCal()</script>
+						</div>
+					</section>	
+
+				<!-- Copyright -->
+					<ul id="copyright">
+						<li>© QBurst Technologies.</li><li>Design: <a href="http://www.qburst.com">Front End Team.</a></li>
+					</ul>
+
+
+		
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/access-controller.js"></script>
+        	<script src="assets/js/data-controller.js"></script>
+
+            
+
+	</body>
