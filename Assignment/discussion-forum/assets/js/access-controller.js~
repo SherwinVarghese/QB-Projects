@@ -1,0 +1,137 @@
+function validateSignUp()
+{   //Special Character Validation
+	
+
+    var iChars = "~!@#$%^&*()+=-[]\\\';,./{}|\":<>?";
+    var signUpFormObj = document.forms['signUpForm'];
+    
+    var alerttext="";
+
+    var fname=signUpFormObj.elements.namedItem("fullname").value;
+	var uname=signUpFormObj.elements.namedItem("username").value;
+	var pword=signUpFormObj.elements.namedItem("password").value;
+	var repword=signUpFormObj.elements.namedItem("repassword").value;
+	var email=signUpFormObj.elements.namedItem("email").value;
+	var secq=signUpFormObj.elements.namedItem("secq").value;
+    var seca=signUpFormObj.elements.namedItem("seca").value;
+    
+    console.log(uname);
+    if( (uname.indexOf(" ") != -1) || uname.length>8 || (uname.indexOf("iChars") != -1) )
+    {
+    	 alerttext+="Please avoid special characters !, @, #, $, %, ^, &, *, (, ), \", /, \\, -, ~,"+
+    	  "white spaces and limit Username to 8 characters\n\n";
+    }
+     if( pword===repword && pword.length<6 )
+    {
+    	 alerttext+="Please provide a longer password... \n\n";
+    }
+
+    if( pword!= repword )
+    {
+    	 alerttext+="Passwords donot Match.... \n\n";
+    }
+   
+    if(alerttext!=""){alert(alerttext);}
+
+    if(alerttext==="") //Form is Valid
+    {         //Storing UserData to a file.
+     //var f1=new file("userdata.jar");
+     var data={};
+     data.fullname=fname;
+     data.username=uname;
+     data.password=pword;
+     data.email=email;
+     data.secq=secq;
+     data.seca=seca;
+
+     
+     if(localStorage.getItem('CUsers')==null)
+     { 
+      var users=new Array();
+      users.push(data);	
+      console.log("Fresh Entry 1st user"+users);
+      localStorage.setItem('CUsers', JSON.stringify(users));
+     }
+     else
+     {
+       var datastore= localStorage.getItem('CUsers');
+       var fulldata=JSON.parse(datastore);
+       console.log("FULL DATA :"+fulldata);
+       fulldata.push(data);
+       localStorage.setItem('CUsers', JSON.stringify(fulldata));
+
+ 
+     }	
+     alert("Thank you for Signing Up to Colloquium ! You will be redirected to the home page.");
+     window.location="./index.html";
+     
+    }
+}
+
+function validateLogin()
+{    
+     var signUpFormObj = document.forms['loginForm'];
+     var uname=signUpFormObj.elements.namedItem("email").value;
+     var passw=signUpFormObj.elements.namedItem("pass").value;
+
+     var alerttext="";
+
+     if(localStorage.getItem('CUsers')==null)
+     { 
+      console.log("No users are currently Registered !");
+      alert("Access Login only after registration !");
+     }
+     else
+     {
+       var datastore= localStorage.getItem('CUsers');
+       var fulldata=JSON.parse(datastore);
+       var n=fulldata.length;
+       var flag=false;
+
+       console.log("Length: "+n);
+       for(var i=0;i<n;i++)
+       {
+         if(fulldata[i].username===uname || fulldata[i].email===uname)
+         {   
+         	if(fulldata[i].password===passw)
+         	{
+              alert(" Welcome to Colloquium !, "+uname);
+              localStorage.setItem('loggedUser',uname);
+              console.log("Logged the user! :)");
+              location.reload();
+              flag=true;
+              break;
+         	}
+         }
+       }
+       if(flag==false){alert("Invalid Username or Password ! Try again !");}
+       
+ 
+     }	    
+    
+}
+
+function loadData()
+{
+	var user=localStorage.getItem("loggedUser");
+	if(user=="null" || user==null)
+	{
+	 document.getElementById("greetuser").innerHTML="Welcome, Guest";	
+	}	
+	else
+	{
+	 	
+	 document.getElementById("loginForm").innerHTML="<ul>"+
+			"<li id=\"greetuser\">Welcome,"+user+"</li><li></li><li></li><li></li><li></li><li></li>"+
+				"<li><a href=\"#\" class=\"button\" onclick=\"logOut()\">  Log Out </a></li><li></li></ul>";
+	 				     
+	}	
+
+	
+}
+
+function logOut()
+{
+	localStorage.setItem("loggedUser",null);
+    location.reload();
+}
